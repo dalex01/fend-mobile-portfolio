@@ -13,10 +13,10 @@ You can run OPTIMIZED site by http://dalex01.github.io/frontend-nanodegree-mobil
 5. Update for-loop in updatePostion function to remove using "%" (monulo) in the loop. Now loop is designed to calculate all five phases at a time.
 6. Update sizeSwitcher function to return percent during changing size of pizza.
 7. Added the following properties to .mover class in style.css:
-* will-change: transform;
-* transform: translateZ(0);
-* transform: translate3d(0,0,0);
-* -webkit-backface-visibility: hidden;
+will-change: transform;
+transform: translateZ(0);
+transform: translate3d(0,0,0);
+-webkit-backface-visibility: hidden;
  
 
 P.S. It is a time killer project :) I'm not sure that I mention here all changes during my investigation.
