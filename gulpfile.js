@@ -10,7 +10,9 @@ var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var minifyCss = require('gulp-minify-css');
 var minifyHTML = require('gulp-minify-html');
-var inline = require('gulp-inline');
+//var inline = require('gulp-inline');
+//var inline = require('gulp-inline-source');
+//var smoosher = require('gulp-smoosher');
 
  // Concatenate & Minify JS
 gulp.task('jsminify', function() {
@@ -56,9 +58,11 @@ gulp.task('htmlminify', function() {
   };
 
   return gulp.src('./*.html')
+//    .pipe(smoosher())
 //    .pipe(inline({
+//      base: './',
 //      js: uglify(),
-//      css: minifyCss(),
+//      css: minifyCss()
 //    }))
     .pipe(minifyHTML(opts))
     .pipe(gulp.dest(dest));

@@ -500,31 +500,15 @@ function updatePositions() {
   // Move all variables declarations which are not changed during the loop out of the for-loop
   // Create all five phases as we want to iterate throw 5 phases at a time
   var phase0 = document.body.scrollTop / 1250;
-  var phase = Math.sin(phase0);
-  var phase1 = Math.sin(phase + 1);
-  var phase2 = Math.sin(phase + 2);
-  var phase3 = Math.sin(phase + 3);
-  var phase4 = Math.sin(phase + 4);
-  var phase5 = Math.sin(phase + 5);
+
+  var phase = [];
+  for (var i = 0; i < 5; i++) {
+    phase.push(Math.sin(phase0 + i) * 100);
+  }
+
   var len = pizzaItems.length;
-  for (var i = 0; i < len; i=i+5) {
-    pizzaItems[i].style.left = pizzaItems[i].basicLeft + 100 * phase1 + 'px';
-    // if we reach the last element break, else update style
-    if (i+1 < len) {
-      pizzaItems[i+1].style.left = pizzaItems[i+1].basicLeft + 100 * phase2 + 'px';  
-    } else break;
-    // if we reach the last element break, else update style
-    if (i+2 < len) {
-      pizzaItems[i+2].style.left = pizzaItems[i+2].basicLeft + 100 * phase3 + 'px';
-    } else break;
-    // if we reach the last element break, else update style
-    if (i+3 < len) {
-      pizzaItems[i+3].style.left = pizzaItems[i+3].basicLeft + 100 * phase4 + 'px';
-    } else break;
-    // if we reach the last element break, else update style
-    if (i+4 < len) {
-      pizzaItems[i+4].style.left = pizzaItems[i+4].basicLeft + 100 * phase5 + 'px';
-    } else break;
+  for (var i = 0; i < len; i++) {
+    pizzaItems[i].style.left = pizzaItems[i].basicLeft + phase[i%5] + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -551,8 +535,8 @@ document.addEventListener('DOMContentLoaded', function() {
     height: window.innerHeight || document.body.clientHeight
   }
   // determine number of columns and rows for pizza creation on the screen
-  var cols = Math.floor(size.width / 250)
-  var rows = Math.floor(size.height / 220)
+  var cols = Math.floor(size.width / 200)
+  var rows = Math.floor(size.height / 200)
   // determine the number of pizzas to be created
   var numOfPizzasToPaint = rows * cols
   for (var i = 0; i < numOfPizzasToPaint; i++) {
