@@ -534,14 +534,15 @@ document.addEventListener('DOMContentLoaded', function() {
   var size = {
     width: window.innerWidth || document.body.clientWidth,
     height: window.innerHeight || document.body.clientHeight
-  }
+  };
   // determine number of columns and rows for pizza creation on the screen
-  var cols = Math.floor(size.width / 200)
-  var rows = Math.floor(size.height / 200)
+  var cols = Math.floor(size.width / 200);
+  var rows = Math.floor(size.height / 200);
   // determine the number of pizzas to be created
-  var numOfPizzasToPaint = rows * cols
+  var numOfPizzasToPaint = rows * cols;
+  var elem;
   for (var i = 0; i < numOfPizzasToPaint; i++) {
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
